@@ -31,19 +31,19 @@ From this PNG we can see that this memory is being allocated through addSessionD
 
 In the initial implementation we were using a Hashmap to store and remove session data. But hashmap is not thread safe, and it does not provide any eviction strategy to handle overload. To counter these problems, I have used three strategies to counter these problems.
 
-1. ConcurrentHashMap based data storage and removal : In this strategy we are simply adding and removing session data without any eviction strategy. This despite being thread safe, does not provide any eviction strategy to counter memory leak.
+1. ConcurrentHashMap based data storage and removal : In this strategy we are simply adding and removing session data inside a concurrent hash map without any eviction strategy. This, despite being thread safe, does not provide any eviction strategy to counter memory leak.
 
-2. LRU Cache Implementation in Concurrent Hashmap with TTL : In this strategy we have implemented LRU Cache mechanism using Concurrent Hashmap and Doubly Linked List. We provide the max capacity and the TTL limit while creating the instance of this cache. Then as the cache crosses the capacity we remove elements from the tail of the doubly linked list (LRU Elements). I have also implemented a prototype of TTL Eviction, but it is not fully functional.
+2. LRU Cache Implementation in Concurrent Hashmap with TTL : In this strategy we have implemented LRU Cache mechanism using Concurrent Hashmap and Doubly Linked List. We provide the max capacity and the TTL limit while creating the instance of this cache. Then, as the cache crosses the capacity we remove elements from the tail of the doubly linked list (LRU Elements). I have also implemented a prototype of TTL Eviction, but it is not fully functional.
 
 3. CaffeineCache : This is an in-memory caching library which supports TTL based expirations and LRU Cache based evictions out of the box.
 
 ### Improvement
 
-Initially
+Initially, we can notice that the memory usage keeps on increasing until exceeding memory limit.
 
 ![Before Optimisation](./beforeOptimisation.png)
 
-After Improvement
+After Improvement, the memory usage keeps oscillating and stays below limit.
 
 ![After optimisation](./afterOptimisation.png)
 
