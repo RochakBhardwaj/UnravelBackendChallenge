@@ -14,6 +14,8 @@ To run this project you need the following
 
 #### Seting Up the MySQL Server
 
+# Installation and startup:
+ 
 ```bash
 # macOS
 brew install mysql
@@ -30,6 +32,8 @@ Start the service using
 ```bash
 net start MySQL80
 ```
+
+# Creating the database (Windows and Mac)
 
 Inside the MySQL shell, run:
 
@@ -52,7 +56,7 @@ mysql -u dbuser -p
 
 ## Project Setup
 
-### 1. Configure Database in `application.properties`
+### Configure Database in `application.properties`
 
 Edit the file at `src/main/resources/application.properties`:
 
