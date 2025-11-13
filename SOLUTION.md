@@ -13,7 +13,7 @@ ConcurrentHashMap is used in the manager, so the manager will not raise Concurre
 
 **Pin-pointed tests in the test folder are created to replicate the initial problem and to see how the improved implementation solves the problem.**
 
-**Note: In a microservice based architecture with multiple session microservices, we will use a distributed cache like Redis for session management**
+**Note: In a microservice based architecture with multiple SessionManager microservices, we will use a distributed cache like Redis for session management**
 
 ### 2. Memory Management
 
