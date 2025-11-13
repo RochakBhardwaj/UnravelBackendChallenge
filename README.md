@@ -1,5 +1,7 @@
 # Unravel Backend Challenge
 
+## Explainations of the solutions are given in the solution.md file. Please refer the solution.md file to understand my approach.
+
 ## Prerequisites
 
 To run this project you need the following 
