@@ -29,13 +29,12 @@ Start the service using
 net start MySQL80
 ```
 
-
 Inside the MySQL shell, run:
 
 ```sql
 mysql -u root -p
-CREATE USER 'dbuser'@'%' IDENTIFIED BY 'dbpassword';
-GRANT CREATE, SELECT, INSERT, UPDATE, DELETE ON *.* TO 'dbuser'@'%';
+CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'dbpassword';
+GRANT CREATE, SELECT, INSERT, UPDATE, DELETE ON *.* TO 'dbuser'@'localhost';
 CREATE DATABASE mydb;
 FLUSH PRIVILEGES;
 EXIT;
@@ -44,7 +43,7 @@ EXIT;
 #### Verify Connection
 
 ```bash
-mysql -u dbuser -p dbpassword
+mysql -u dbuser -p
 ```
 
 ---
@@ -73,6 +72,7 @@ spring.datasource.hikari.max-lifetime=1800000
 
 ---
 
+
 ## Testing and Running Problems:
 
 ### Part1 : Session Management
@@ -81,11 +81,11 @@ spring.datasource.hikari.max-lifetime=1800000
 
 ### Part2 : Memory Management
 
-**Tests are given in test folder for this problem, you can choose different strategies to look for memory management under different cases.**
+**Tests are given in test folder for this problem, you can choose different strategies to look for memory management under different caching strategies.**
 
 ### Part3 : 
 
-**The simulation of this problem is provided in the LogProcessingApp Class in the main package, please run it from there**
+**The simulation of this problem is provided in the LogProcessingApp Class in the main package, please run it from there. **
 
 ### Part4 : 
 
@@ -93,7 +93,11 @@ spring.datasource.hikari.max-lifetime=1800000
 
 ### Part5 : 
 
-**The connection simulation scenarios are executed automatically on application startup via `ConnectionSimulator`.  
-Run the Spring Boot application (`UnravelBackendChallengeApplication`) to start the simulations.**
+**The connection simulation scenarios are executed automatically on application startup via `ConnectionSimulator`.**  
 
+You can check this problem by running the Spring Boot application (`UnravelBackendChallengeApplication`) through run icon in IntelliJ or through the command
+
+```bash
+mvnw spring-boot:run
+```
 

@@ -111,7 +111,11 @@ Our old program is having static configuration settings for HikariCP. But during
 
 For ensuring this, whenever a thread is requesting for a new connection I store the wait time to a queue. After every minute I check the average acquisition time for the last 50 samples, if this is higher than threshold, I increase the value of Max pool size and increase the minimum idle connections. The reverse logic is applied for scaling down during low average acquisition times.
 
-**You can check the scale up in action by running the Spring Boot application (`UnravelBackendChallengeApplication`)**
+**You can check this problem by running the Spring Boot application (`UnravelBackendChallengeApplication`) through run icon in IntelliJ or through the command**
+
+```bash
+mvnw spring-boot:run
+```
 
 
 
