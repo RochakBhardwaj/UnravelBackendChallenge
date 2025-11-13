@@ -85,7 +85,7 @@ spring.datasource.hikari.max-lifetime=1800000
 
 ### Part3 : 
 
-**The simulation of this problem is provided in the LogProcessingApp Class in the main package, please run it from there. **
+**The simulation of this problem is provided in the LogProcessingApp Class in the main package, please run it from there.**
 
 ### Part4 : 
 
